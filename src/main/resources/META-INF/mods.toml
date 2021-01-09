@@ -1,0 +1,44 @@
+modLoader="javafml"
+loaderVersion="[35,)"
+license="MIT License"
+
+[[mods]]
+modId="relicex"
+version="1.0.0"
+displayName="Relic Ex"
+displayURL="https://github.com/CleverNucleus/PlayerEx"
+logoFile="logo.png"
+credits="CleverNucleus: Code and major texturer."
+authors="CleverNucleus"
+
+description='''
+A compat mod to bridge Curios and PlayerEx; adding curios items that implement the attribute system of PlayerEx.
+'''
+
+[[dependencies.relicex]]
+    modId="forge"
+    mandatory=true
+    versionRange="[35,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.relicex]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.4]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.relicex]]
+    modId="playerex"
+    mandatory=true
+    versionRange="[1.1,]"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.relicex]]
+    modId="curios"
+    mandatory=true
+    versionRange="[1.16.4-4.0,]"
+    ordering="AFTER"
+    side="BOTH"
