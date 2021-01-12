@@ -9,7 +9,7 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 public class RelicEx {
 	public static final String MODID = "relicex";
 	
-	public ExCurios() {
+	public RelicEx() {
 		Registry.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 	}
 }

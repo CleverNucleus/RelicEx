@@ -1,0 +1,13 @@
+{
+	"item.relicex.amulet_relic": "Amulet Relic",
+	"item.relicex.body_relic": "Body Relic",
+	"item.relicex.head_relic": "Head Relic",
+	"item.relicex.ring_relic": "Ring Relic",
+	"relicex.rareness.common": "Common",
+	"relicex.rareness.uncommon": "Uncommon",
+	"relicex.rareness.rare": "Rare",
+	"relicex.rareness.epic": "Epic",
+	"relicex.rareness.mythical": "Mythical",
+	"relicex.rareness.legendary": "Legendary",
+	"relicex.rareness.immortal": "Immortal"
+}

@@ -1,11 +1,19 @@
 package com.github.clevernucleus.relicex.init;
 
-import com.github.clevernucleus.relicex.ExCurios;
-import com.github.clevernucleus.relicex.init.item.*;
+import com.github.clevernucleus.relicex.RelicEx;
+import com.github.clevernucleus.relicex.init.capability.Data;
+import com.github.clevernucleus.relicex.init.capability.IData;
+import com.github.clevernucleus.relicex.init.item.RelicItem;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
+import net.minecraft.nbt.CompoundNBT;
+import net.minecraft.nbt.INBT;
+import net.minecraft.util.Direction;
 import net.minecraft.util.text.TextFormatting;
+import net.minecraftforge.common.capabilities.Capability;
+import net.minecraftforge.common.capabilities.CapabilityInject;
+import net.minecraftforge.common.capabilities.CapabilityManager;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.RegistryObject;
@@ -21,18 +29,42 @@ import top.theillusivec4.curios.api.SlotTypeMessage;
 @Mod.EventBusSubscriber(modid = RelicEx.MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public class Registry {
 	
+	/** Capability access. */
+	@CapabilityInject(IData.class)
+	public static final Capability<IData> DATA = null;
+	
 	/** For gold coloured tooltips. */
 	public static final Rarity IMMORTAL = Rarity.create("immortal", TextFormatting.GOLD);
 	/** Item register. */
 	public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RelicEx.MODID);
 	/** Necklace loot item. */
-	public static final RegistryObject<Item> NECKLACE_RELIC = ITEMS.register("necklace_item", () -> new RelicItem());
+	public static final RegistryObject<Item> AMULET_RELIC = ITEMS.register("amulet_relic", () -> new RelicItem());
 	/** Body loot item. */
-	public static final RegistryObject<Item> BODY_RELIC = ITEMS.register("body_item", () -> new RelicItem());
+	public static final RegistryObject<Item> BODY_RELIC = ITEMS.register("body_relic", () -> new RelicItem());
 	/** Head loot item. */
-	public static final RegistryObject<Item> HEAD_RELIC = ITEMS.register("head_item", () -> new RelicItem());
+	public static final RegistryObject<Item> HEAD_RELIC = ITEMS.register("head_relic", () -> new RelicItem());
 	/** Ring loot item. */
-	public static final RegistryObject<Item> RING_RELIC = ITEMS.register("ring_item", () -> new RelicItem());
+	public static final RegistryObject<Item> RING_RELIC = ITEMS.register("ring_relic", () -> new RelicItem());
+	
+	/**
+	 * Mod initialisation event.
+	 * @param par0
+	 */
+	@SubscribeEvent
+	public static void commonSetup(final net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent par0) {
+		CapabilityManager.INSTANCE.register(IData.class, new Capability.IStorage<IData>() {
+			
+			@Override
+			public INBT writeNBT(Capability<IData> par0, IData par1, Direction par2) {
+				return par1.write();
+			}
+			
+			@Override
+			public void readNBT(Capability<IData> par0, IData par1, Direction par2, INBT par3) {
+				par1.read((CompoundNBT)par3);
+			}
+		}, Data::new);
+	}
 	
 	/**
 	 * Event registering curios slots
