@@ -3,7 +3,9 @@ package com.github.clevernucleus.relicex.init;
 import com.github.clevernucleus.relicex.RelicEx;
 import com.github.clevernucleus.relicex.init.capability.Data;
 import com.github.clevernucleus.relicex.init.capability.IData;
+import com.github.clevernucleus.relicex.init.item.HealthPotionItem;
 import com.github.clevernucleus.relicex.init.item.RelicItem;
+import com.github.clevernucleus.relicex.util.CommonConfig;
 
 import net.minecraft.item.Item;
 import net.minecraft.item.Rarity;
@@ -45,6 +47,12 @@ public class Registry {
 	public static final RegistryObject<Item> HEAD_RELIC = ITEMS.register("head_relic", () -> new RelicItem());
 	/** Ring loot item. */
 	public static final RegistryObject<Item> RING_RELIC = ITEMS.register("ring_relic", () -> new RelicItem());
+	/** Small Health Potion */
+	public static final RegistryObject<Item> SMALL_HEALTH_POTION = ITEMS.register("small_health_potion", () -> new HealthPotionItem(4F, CommonConfig.COMMON.weightSmallHealthPotion.get().floatValue()));
+	/** Medium Health Potion */
+	public static final RegistryObject<Item> MEDIUM_HEALTH_POTION = ITEMS.register("medium_health_potion", () -> new HealthPotionItem(6F, CommonConfig.COMMON.weightMediumHealthPotion.get().floatValue()));
+	/** Large Health Potion */
+	public static final RegistryObject<Item> LARGE_HEALTH_POTION = ITEMS.register("large_health_potion", () -> new HealthPotionItem(8F, CommonConfig.COMMON.weightLargeHealthPotion.get().floatValue()));
 	
 	/**
 	 * Mod initialisation event.

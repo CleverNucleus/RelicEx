@@ -29,13 +29,13 @@ import net.minecraftforge.fml.common.Mod;
 @Mod.EventBusSubscriber(modid = RelicEx.MODID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ClientEventHandler {
 	private static final Function<Double, String> DECIMAL = var -> (new DecimalFormat("##.##")).format(var);
+	private static final Function<Double, String> DEFAULT = var -> " +" + (new DecimalFormat("##.##")).format(var);
 	private static final Supplier<Map<IPlayerAttribute, Function<Double, String>>> FORMAT = () -> {
 		Map<IPlayerAttribute, Function<Double, String>> var0 = new HashMap<>();
 		Function<Double, String> var1 = var -> " +" + DECIMAL.apply(var * 100D) + "%";
 		Function<Double, String> var2 = var -> " +" + DECIMAL.apply(var * 10D);
-		Function<Double, String> var3 = var -> " -" + DECIMAL.apply(var);
 		
-		var0.put(PlayerAttributes.HEALTH_REGEN, var -> DECIMAL.apply(var * 20D) + "/s");
+		var0.put(PlayerAttributes.HEALTH_REGEN, var -> " +" + DECIMAL.apply(var * 20D) + "/s");
 		var0.put(PlayerAttributes.HEALTH_REGEN_AMP, var1);
 		var0.put(PlayerAttributes.KNOCKBACK_RESISTANCE, var2);
 		var0.put(PlayerAttributes.DAMAGE_REDUCTION, var2);
@@ -46,9 +46,10 @@ public class ClientEventHandler {
 		var0.put(PlayerAttributes.POISON_RESISTANCE, var2);
 		var0.put(PlayerAttributes.WITHER_RESISTANCE, var2);
 		var0.put(PlayerAttributes.DROWNING_RESISTANCE, var2);
+		var0.put(PlayerAttributes.MOVEMENT_SPEED, var -> " +" + DECIMAL.apply(var * 20D));
 		var0.put(PlayerAttributes.MELEE_CRIT_DAMAGE, var1);
 		var0.put(PlayerAttributes.MELEE_CRIT_CHANCE, var1);
-		var0.put(PlayerAttributes.GRAVITY, var3);
+		var0.put(PlayerAttributes.GRAVITY, var -> " -" + DECIMAL.apply(var));
 		var0.put(PlayerAttributes.EVASION, var1);
 		var0.put(PlayerAttributes.RANGED_CRIT_DAMAGE, var1);
 		var0.put(PlayerAttributes.RANGED_CRIT_CHANCE, var1);
@@ -58,10 +59,10 @@ public class ClientEventHandler {
 	};
 	
 	private static ITextComponent formatAttribute(final IPlayerAttribute par0, final double par1) {
-		String var0 = FORMAT.get().getOrDefault(par0, DECIMAL).apply(par1);
+		String var0 = FORMAT.get().getOrDefault(par0, DEFAULT).apply(par1);
 		TranslationTextComponent var1 = new TranslationTextComponent(par0.get().getAttributeName());
 		
-		return new StringTextComponent(TextFormatting.GRAY + var0 + var1.getString());
+		return new StringTextComponent(TextFormatting.GRAY + var0 + " " + var1.getString());
 	}
 	
 	/**

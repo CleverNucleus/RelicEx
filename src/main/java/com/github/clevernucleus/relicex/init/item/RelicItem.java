@@ -10,6 +10,7 @@ import com.github.clevernucleus.playerex.api.attribute.IPlayerAttributes;
 import com.github.clevernucleus.playerex.api.attribute.PlayerAttributes;
 import com.github.clevernucleus.relicex.init.capability.Data;
 import com.github.clevernucleus.relicex.init.capability.IData;
+import com.github.clevernucleus.relicex.util.CommonConfig;
 import com.github.clevernucleus.relicex.util.Modifiers;
 import com.github.clevernucleus.relicex.util.Util;
 
@@ -30,7 +31,7 @@ import net.minecraftforge.common.util.LazyOptional;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.type.capability.ICurio;
 
-public class RelicItem extends Item {
+public class RelicItem extends Item implements ILoot {
 	public RelicItem() {
 		super(new Item.Properties().maxStackSize(1).group(ItemGroup.TOOLS));
 	}
@@ -79,6 +80,11 @@ public class RelicItem extends Item {
 			par2.remove(var3);
 			var0.remove("UUID");
 		}
+	}
+	
+	@Override
+	public float weight() {
+		return CommonConfig.COMMON.weightRelic.get().floatValue();
 	}
 	
 	@Override
