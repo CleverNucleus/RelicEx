@@ -1,0 +1,20 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "com.github.clevernucleus.playerex.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+  	"ClampedEntityAttributeMixin",
+  	"PlayerEntityMixin",
+  	"LivingEntityMixin",
+  	"ProjectileEntityMixin"
+  ],
+  "client": [
+  	"client.HandledScreenMixin",
+  	"client.ClientPlayNetworkHandlerMixin",
+  	"client.PlayerEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,108 +1,85 @@
-buildscript {
-    repositories {
-        maven { url = 'https://files.minecraftforge.net/maven' }
-        jcenter()
-        mavenCentral()
-    }
-    dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
-    }
+plugins {
+	id 'fabric-loom' version '0.6-SNAPSHOT'
+	id 'maven-publish'
 }
-apply plugin: 'net.minecraftforge.gradle'
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
 
-version = "${mod_version}"
-group = "${mod_group}"
-archivesBaseName = "${mod_name}"
+sourceCompatibility = JavaVersion.VERSION_1_8
+targetCompatibility = JavaVersion.VERSION_1_8
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' 
+archivesBaseName = project.archives_base_name
+version = project.mod_version
+group = project.maven_group
 
-println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-minecraft {
-	mappings channel: 'snapshot', version: '20201028-1.16.3'
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                relicex {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                relicex {
-                    source sourceSets.main
-                }
-            }
-        }
+repositories {
+    maven {
+        url = "https://jitpack.io/"
     }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.16.4-35.1.0'
-	
-	runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.3")
-    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:1.16.4-4.0.3.3:api")
-	runtimeOnly fg.deobf("com.github.CleverNucleus:PlayerEx:1.1.5")
-	compileOnly fg.deobf("com.github.CleverNucleus:PlayerEx:1.1.5:api")
+	minecraft "com.mojang:minecraft:${project.minecraft_version}"
+	mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+	modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    
+	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    
+	modImplementation "com.github.CleverNucleus:PlayerEx:${version}"
+    modImplementation "com.github.CleverNucleus:PlayerEx:${version}:api"
+    include "com.github.CleverNucleus:PlayerEx:${version}:api"
 }
 
-repositories {
-    maven {
-        url = "https://maven.theillusivec4.top/"
+processResources {
+    inputs.property "version", project.version
+    
+    from(sourceSets.main.resources.srcDirs) {
+        include "fabric.mod.json"
+        expand 'version': project.version
     }
-	
-	maven {
-		url = "https://jitpack.io/"
+    
+    from(sourceSets.main.resources.srcDirs) {
+        exclude "fabric.mod.json"
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+	it.options.encoding = "UTF-8"
+    
+	def targetVersion = 8
+	if (JavaVersion.current().isJava9Compatible()) {
+		 it.options.release = targetVersion
 	}
 }
 
+task sourcesJar(type: Jar, dependsOn: classes) {
+    archiveClassifier.set("sources")
+    from sourceSets.main.allSource
+}
+
+java {
+	withSourcesJar()
+}
+
 jar {
-    manifest {
-        attributes([
-            "Specification-Title": "${mod_name}",
-            "Specification-Vendor": "${mod_author}",
-            "Specification-Version": "${version}",
-            "Implementation-Title": "${archivesBaseName}",
-            "Implementation-Version": "${version}",
-            "Implementation-Vendor" :"${mod_author}",
-            "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ")
-        ])
-    }
+	from("LICENSE") {
+		rename { "${it}_${project.archivesBaseName}"}
+	}
 }
-
-jar.finalizedBy('reobfJar')
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allJava
-}
-
-tasks.build.dependsOn sourcesJar
 
 publishing {
-    publications {
-        mavenJava(MavenPublication) {
-			artifactId project.archivesBaseName
-			
-            artifact jar
-            artifact sourcesJar
-        }
-    }
-    repositories {
-        maven {
-			url "file:///D:/Files/Java/Git/API/local/repositories/libs-release-local"
-        }
-    }
+	publications {
+		mavenJava(MavenPublication) {
+            artifactId = project.archives_base_name
+            
+			artifact(remapJar) {
+				builtBy remapJar
+			}
+			artifact(sourcesJar) {
+				builtBy remapSourcesJar
+			}
+		}
+	}
+    
+	repositories {
+        
+	}
 }
