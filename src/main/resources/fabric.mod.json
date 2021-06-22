@@ -1,45 +1,30 @@
 {
 	"schemaVersion": 1,
-	"id": "playerex",
-	"version": "2.0.1",
-	"name": "PlayerEx",
-	"description": "Implements a more detailed attributes system with an rpg theme.",
+	"id": "relicex",
+	"version": "2.0.0",
+	"name": "RelicEx",
+	"description": "Bridges Trinkets and PlayerEx.",
 	"authors": [
 		"CleverNucleus"
 	],
     
 	"contact": {
-        "homepage": "https://www.curseforge.com/minecraft/mc-mods/playerex",
-        "sources": "https://github.com/CleverNucleus/PlayerEx",
-        "issues": "https://github.com/CleverNucleus/PlayerEx/issues"
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/relicex",
+        "sources": "https://github.com/CleverNucleus/PlayerExRelics",
+        "issues": "https://github.com/CleverNucleus/PlayerExRelics/issues"
 	},
     
 	"license": "MIT",
-	"icon": "assets/playerex/icon.png",
+	"icon": "assets/relicex/icon.png",
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"com.github.clevernucleus.playerex.PlayerEx"
-		],
-		"client": [
-			"com.github.clevernucleus.playerex.client.PlayerExClient"
-		],
-        "cardinal-components": [
-			"com.github.clevernucleus.playerex.impl.attribute.AttributeDataContainer"
-		],
-		"modmenu": [
-			"com.github.clevernucleus.playerex.config.ModMenuCompat"
-		]
-	},
-	
-    "custom": {
-		"cardinal-components": [
-			"playerex:attributes"
+			"com.github.clevernucleus.relicex.RelicEx"
 		]
 	},
     
 	"mixins": [
-		"playerex.mixins.json"
+		"relicex.mixins.json"
 	],
     
 	"depends": {

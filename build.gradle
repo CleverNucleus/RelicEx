@@ -14,6 +14,25 @@ repositories {
     maven {
         url = "https://jitpack.io/"
     }
+	maven {
+        name = 'Ladysnake Mods'
+        url = 'https://ladysnake.jfrog.io/artifactory/mods'
+    }
+    maven {
+        url "https://maven.jamieswhiteshirt.com/libs-release"
+        content {
+            includeGroup "com.jamieswhiteshirt"
+        }
+    }
+    maven {
+        url "https://maven.shedaniel.me/"
+    }
+    maven {
+		url "https://maven.terraformersmc.com/"
+	}
+    maven {
+        url "https://www.cursemaven.com"
+    }
 }
 
 dependencies {
@@ -23,9 +42,10 @@ dependencies {
     
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     
-	modImplementation "com.github.CleverNucleus:PlayerEx:${version}"
-    modImplementation "com.github.CleverNucleus:PlayerEx:${version}:api"
-    include "com.github.CleverNucleus:PlayerEx:${version}:api"
+	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
+	
+    modImplementation "com.github.CleverNucleus:PlayerEx:${project.playerex_version}:api"
+	modRuntime "com.github.CleverNucleus:PlayerEx:${project.playerex_version}"
 }
 
 processResources {
