@@ -11,9 +11,6 @@ version = project.mod_version
 group = project.maven_group
 
 repositories {
-    maven {
-        url = "https://jitpack.io/"
-    }
 	maven {
         name = 'Ladysnake Mods'
         url = 'https://ladysnake.jfrog.io/artifactory/mods'
@@ -32,6 +29,9 @@ repositories {
 	}
     maven {
         url "https://www.cursemaven.com"
+    }
+	maven {
+        url = "https://jitpack.io/"
     }
 }
 

@@ -20,8 +20,20 @@
 	"entrypoints": {
 		"main": [
 			"com.github.clevernucleus.relicex.RelicEx"
+		],
+		"client": [
+			
+		],
+		"cardinal-components": [
+			"com.github.clevernucleus.relicex.impl.UUIDCacheContainer"
 		]
 	},
+    
+    "custom": {
+    	"cardinal-components": [
+			"relicex:uuid_cache"
+		]
+    },
     
 	"mixins": [
 		"relicex.mixins.json"

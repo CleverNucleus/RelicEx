@@ -1,3 +1,16 @@
 {
-    
+    "item.relicex.head": "Relic",
+    "item.relicex.body": "Relic",
+    "item.relicex.amulet": "Relic",
+    "item.relicex.ring": "Relic",
+    "rareness.relicex.common": "Common",
+    "rareness.relicex.uncommon": "Uncommon",
+    "rareness.relicex.rare": "Rare",
+    "rareness.relicex.epic": "Epic",
+    "rareness.relicex.mythical": "Mythical",
+    "rareness.relicex.legendary": "Legendary",
+    "rareness.relicex.immortal": "Immortal",
+    "trinkets.slot.chest.body": "Body",
+    "trinkets.slot.head.head": "Head",
+    "tooltip.relicex.worn": "When worn:"
 }

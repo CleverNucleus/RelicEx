@@ -4,10 +4,11 @@
   "package": "com.github.clevernucleus.relicex.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
-      
+      "ItemStackMixin",
+      "PlayerEntityMixin"
   ],
   "client": [
-      
+      "client.ItemStackMixin"
   ],
   "injectors": {
     "defaultRequire": 1
