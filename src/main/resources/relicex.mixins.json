@@ -5,7 +5,9 @@
   "compatibilityLevel": "JAVA_8",
   "mixins": [
       "ItemStackMixin",
-      "PlayerEntityMixin"
+      "PlayerEntityMixin",
+      "LivingEntityMixin",
+      "EnderDragonEntityMixin"
   ],
   "client": [
       "client.ItemStackMixin"

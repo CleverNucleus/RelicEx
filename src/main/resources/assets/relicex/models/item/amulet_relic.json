@@ -1,0 +1,51 @@
+{
+	"parent": "item/generated",
+	"textures": {
+		"layer0": "relicex:items/amulet_0"
+	},
+	
+	"overrides": [
+		{
+			"predicate": {
+				"relicex:rareness": 0.0
+			},
+			"model": "relicex:item/amulet_relic"
+		},
+		{
+			"predicate": {
+				"relicex:rareness": 0.1
+			},
+			"model": "relicex:item/amulet/amulet_1"
+		},
+		{
+			"predicate": {
+				"relicex:rareness": 0.2
+			},
+			"model": "relicex:item/amulet/amulet_2"
+		},
+		{
+			"predicate": {
+				"relicex:rareness": 0.3
+			},
+			"model": "relicex:item/amulet/amulet_3"
+		},
+		{
+			"predicate": {
+				"relicex:rareness": 0.4
+			},
+			"model": "relicex:item/amulet/amulet_4"
+		},
+		{
+			"predicate": {
+				"relicex:rareness": 0.5
+			},
+			"model": "relicex:item/amulet/amulet_5"
+		},
+		{
+			"predicate": {
+				"relicex:rareness": 0.6
+			},
+			"model": "relicex:item/amulet/amulet_6"
+		}
+	]
+}

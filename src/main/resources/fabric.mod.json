@@ -5,7 +5,9 @@
 	"name": "RelicEx",
 	"description": "Bridges Trinkets and PlayerEx.",
 	"authors": [
-		"CleverNucleus"
+		"CleverNucleus",
+		"Bonsaiheldin | http://bonsaiheld.org",
+		"Joe Williamson | @JoeCreates"
 	],
     
 	"contact": {
@@ -22,10 +24,13 @@
 			"com.github.clevernucleus.relicex.RelicEx"
 		],
 		"client": [
-			
+			"com.github.clevernucleus.relicex.RelicExClient"
 		],
 		"cardinal-components": [
 			"com.github.clevernucleus.relicex.impl.UUIDCacheContainer"
+		],
+		"modmenu": [
+			"com.github.clevernucleus.relicex.impl.ModMenuCompat"
 		]
 	},
     

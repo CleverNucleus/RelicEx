@@ -1,9 +1,9 @@
 {
     "replace": false,
     "values": [
-        "relicex:head",
-        "relicex:body",
-        "relicex:amulet",
-        "relicex:ring"
+        "relicex:head_relic",
+        "relicex:body_relic",
+        "relicex:amulet_relic",
+        "relicex:ring_relic"
     ]
 }

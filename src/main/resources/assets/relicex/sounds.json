@@ -1,0 +1,14 @@
+{
+    "level_refund": {
+        "subtitle": "sound.relicex.level_refund",
+        "sounds": [
+            "relicex:level_refund"
+        ]
+    },
+    "potion_use": {
+        "subtitle": "sound.relicex.potion_use",
+        "sounds": [
+            "relicex:potion_use"
+        ]
+    }
+}
