@@ -2,11 +2,7 @@
 
 #### Description
 
-This mod adds Curios compatibility with PlayerEx, along a RPG theme. 
-
-#### Health Potions
-
-There are three health potions added: small, medium and large. Health Potions have a chance to drop from mobs, and when picked up by the player will heal for two, four and six hearts, respectively.
+This mod adds Trinkets compatibility with PlayerEx, along a RPG theme. 
 
 #### Relics
 
@@ -16,3 +12,5 @@ Relics come with a rarity system: Common, Uncommon, Rare, Epic, Mythical, Legend
 
 
 All randomness and chance to drop is weighted and fully configurable.
+
+A few misc items are also added, see the [curseforge](https://www.curseforge.com/minecraft/mc-mods/relicex) page for details.
