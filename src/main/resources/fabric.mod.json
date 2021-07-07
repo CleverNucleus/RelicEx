@@ -1,7 +1,7 @@
 {
 	"schemaVersion": 1,
 	"id": "relicex",
-	"version": "2.0.0",
+	"version": "2.0.1",
 	"name": "RelicEx",
 	"description": "Bridges Trinkets and PlayerEx.",
 	"authors": [
@@ -47,7 +47,9 @@
 	"depends": {
 		"fabricloader": ">=0.7.4",
 		"fabric": "*",
-		"minecraft": "1.16.x"
+		"minecraft": "1.16.x",
+        "playerex": ">=2.0.4",
+        "trinkets": "*"
 	},
     
 	"suggests": {

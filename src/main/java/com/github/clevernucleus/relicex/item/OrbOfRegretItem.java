@@ -35,7 +35,7 @@ public class OrbOfRegretItem extends Item {
 		int total = 0;
 		
 		for(IAttribute attribute : ATTRIBUTES) {
-			int amount = Math.round((float)data.get(attribute.get()));
+			int amount = Math.round((float)data.getValue(attribute.get()));
 			total += amount;
 		}
 		
