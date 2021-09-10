@@ -1,58 +1,44 @@
 {
-	"schemaVersion": 1,
-	"id": "relicex",
-	"version": "2.0.1",
-	"name": "RelicEx",
-	"description": "Bridges Trinkets and PlayerEx.",
-	"authors": [
-		"CleverNucleus",
+    "schemaVersion": 1,
+    "id": "relicex",
+    "version": "${version}",
+    "name": "RelicEx",
+    "description": "Bridges Trinkets and PlayerEx.",
+    "authors": [
+        "CleverNucleus",
 		"Bonsaiheldin | http://bonsaiheld.org",
 		"Joe Williamson | @JoeCreates"
-	],
-    
-	"contact": {
+    ],
+    "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/relicex",
-        "sources": "https://github.com/CleverNucleus/PlayerExRelics",
-        "issues": "https://github.com/CleverNucleus/PlayerExRelics/issues"
-	},
-    
-	"license": "MIT",
-	"icon": "assets/relicex/icon.png",
-	"environment": "*",
-	"entrypoints": {
-		"main": [
-			"com.github.clevernucleus.relicex.RelicEx"
-		],
-		"client": [
-			"com.github.clevernucleus.relicex.RelicExClient"
-		],
-		"cardinal-components": [
-			"com.github.clevernucleus.relicex.impl.UUIDCacheContainer"
-		],
-		"modmenu": [
-			"com.github.clevernucleus.relicex.impl.ModMenuCompat"
-		]
-	},
-    
-    "custom": {
-    	"cardinal-components": [
-			"relicex:uuid_cache"
-		]
+        "sources": "https://github.com/CleverNucleus/PlayerExRelics"
     },
     
-	"mixins": [
-		"relicex.mixins.json"
-	],
+    "license": "MIT",
+    "icon": "assets/relicex/icon.png",
     
-	"depends": {
-		"fabricloader": ">=0.7.4",
-		"fabric": "*",
-		"minecraft": "1.16.x",
-        "playerex": ">=2.0.4",
-        "trinkets": "*"
-	},
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "com.github.clevernucleus.relicex.RelicEx"
+        ],
+        "client": [
+            "com.github.clevernucleus.relicex.client.RelicExClient"
+        ]
+    },
+    "custom": {
+        
+    },
+    "mixins": [
+        "playerex.mixins.json"
+    ],
     
-	"suggests": {
-		"another-mod": "*"
-	}
+    "depends": {
+        "fabricloader": ">=0.11.3",
+        "fabric": ">=0.37.1",
+        "minecraft": "1.17.x",
+        "java": ">=16",
+        "playerex": ">=3.0.2",
+        "trinkets": ">=3.0.4"
+    }
 }
