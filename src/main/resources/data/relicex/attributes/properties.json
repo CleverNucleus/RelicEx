@@ -1,0 +1,25 @@
+{
+	"values": {
+		"minecraft:generic.max_health": {
+			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.001"
+		},
+		"minecraft:generic.armor": {
+			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.001"
+		},
+		"playerex:constitution": {
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+		},
+		"playerex:strength": {
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+		},
+		"playerex:dexterity": {
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+		},
+		"playerex:intelligence": {
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+		},
+		"playerex:luckiness": {
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+		}
+	}
+}

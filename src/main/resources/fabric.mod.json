@@ -30,7 +30,7 @@
         
     },
     "mixins": [
-        "playerex.mixins.json"
+        "relicex.mixins.json"
     ],
     
     "depends": {
@@ -38,7 +38,7 @@
         "fabric": ">=0.37.1",
         "minecraft": "1.17.x",
         "java": ">=16",
-        "playerex": ">=3.0.2",
-        "trinkets": ">=3.0.4"
+        "playerex": ">=3.0.1",
+        "trinkets": ">=3.0.1"
     }
 }
