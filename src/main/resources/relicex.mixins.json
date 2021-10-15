@@ -4,7 +4,8 @@
     "package": "com.github.clevernucleus.relicex.mixin",
     "compatibilityLevel": "JAVA_16",
     "mixins": [
-        "ItemStackMixin"
+        "ItemStackMixin",
+        "MobEntityMixin"
     ],
     "client": [
         "client.ItemStackMixin"

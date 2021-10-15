@@ -6,6 +6,7 @@ import java.util.HashSet;
 import com.github.clevernucleus.dataattributes.api.event.ServerSyncedEvent;
 import com.github.clevernucleus.playerex.api.ExAPI;
 import com.github.clevernucleus.relicex.impl.RarityManager;
+import com.github.clevernucleus.relicex.impl.item.ArmorRelicItem;
 import com.github.clevernucleus.relicex.impl.item.RelicItem;
 import com.github.clevernucleus.relicex.impl.relic.RelicType;
 
@@ -26,6 +27,8 @@ public final class RelicEx implements ModInitializer {
 	
 	public static final Item AMULET_RELIC = register("amulet_relic", new RelicItem(RelicType.AMULET));
 	public static final Item RING_RELIC = register("ring_relic", new RelicItem(RelicType.RING));
+	public static final Item HEAD_RELIC = register("head_relic", new ArmorRelicItem(RelicType.HEAD));
+	public static final Item BODY_RELIC = register("body_relic", new ArmorRelicItem(RelicType.BODY));
 	
 	private static Item register(final String keyIn, Item itemIn) {
 		itemIn = Registry.register(Registry.ITEM, new Identifier(MODID, keyIn), itemIn);

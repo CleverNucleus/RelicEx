@@ -28,6 +28,7 @@ repositories {
 	maven {
 		url = "https://www.cursemaven.com"
 	}
+	mavenLocal()
 }
 
 dependencies {
@@ -44,6 +45,9 @@ dependencies {
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 	modImplementation "curse.maven:dataattributes-514734:3468573"
 	modImplementation "curse.maven:playerex-409221:3470132"
+	
+	modImplementation "com.github.clevernucleus:ArmorModelPredicate:0.0.1"
+	include "com.github.clevernucleus:ArmorModelPredicate:0.0.1"
 	
 	modImplementation("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
