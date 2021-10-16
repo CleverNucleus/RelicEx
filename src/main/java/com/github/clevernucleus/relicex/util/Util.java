@@ -6,11 +6,28 @@ import com.github.clevernucleus.relicex.RelicEx;
 import com.github.clevernucleus.relicex.impl.relic.EntityAttributeCollection;
 import com.mojang.datafixers.util.Pair;
 
+import net.minecraft.entity.EquipmentSlot;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.attribute.AttributeContainer;
+import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.util.Identifier;
 
 public final class Util {
+	public static boolean checkHasAttributes(final LivingEntity entity, final ItemStack itemStack, final EquipmentSlot slot) {
+		if(entity == null || itemStack.isEmpty()) return false;
+		
+		AttributeContainer container = entity.getAttributes();
+		var modifiers = itemStack.getAttributeModifiers(slot);
+		var attributes = modifiers.keySet();
+		
+		for(EntityAttribute attribute : attributes) {
+			if(!container.hasAttribute(attribute)) return false;
+		}
+		
+		return true;
+	}
 	
 	public static float randomAttribute(EntityAttributeCollection collectionIn) {
 		RandDistribution<Identifier> distributor = new RandDistribution<Identifier>(null);

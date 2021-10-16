@@ -8,6 +8,7 @@ import com.github.clevernucleus.relicex.impl.relic.EntityAttributeCollection;
 import com.github.clevernucleus.relicex.impl.relic.RelicType;
 import com.github.clevernucleus.relicex.impl.relic.SlotKey;
 import com.github.clevernucleus.relicex.util.Rareness;
+import com.github.clevernucleus.relicex.util.Util;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.ImmutableMultimap;
 import com.google.common.collect.Multimap;
@@ -54,10 +55,11 @@ public final class ArmorRelicItem extends ArmorItem {
 		} else {
 			LivingEntity livingEntity = (LivingEntity)list.get(0);
 			
-			// TODO check attributes.
-			
 			EquipmentSlot equipmentSlot = MobEntity.getPreferredEquipmentSlot(armor);
 			ItemStack itemStack = armor.split(1);
+			
+			if(!Util.checkHasAttributes(livingEntity, itemStack, equipmentSlot)) return false;
+			
 			livingEntity.equipStack(equipmentSlot, itemStack);
 			
 			if(livingEntity instanceof MobEntity) {
@@ -93,7 +95,6 @@ public final class ArmorRelicItem extends ArmorItem {
 		
 		Rareness rareness = Rareness.fromKey(tag.getString("Rareness"));
 		tooltip.add(rareness.formatted());
-		//tooltip.add(new LiteralText("rar: " + this.rareness));
 	}
 	
 	@Override
