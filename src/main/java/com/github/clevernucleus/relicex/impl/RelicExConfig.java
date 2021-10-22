@@ -29,8 +29,27 @@ public final class RelicExConfig implements ConfigData {
 	@ConfigEntry.Gui.Tooltip
 	public int monstersDropTome = 5;
 	
+	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+	@ConfigEntry.Gui.Tooltip
+	public int chestsDropRelicsChance = 25;
+	
+	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+	@ConfigEntry.Gui.Tooltip
+	public int chestsDropLesserOrbChance = 5;
+	
+	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+	@ConfigEntry.Gui.Tooltip
+	public int chestsDropGreaterOrbChance = 1;
+	
+	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
+	@ConfigEntry.Gui.Tooltip
+	public int chestsDropTome = 5;
+	
 	@ConfigEntry.Gui.Tooltip
 	public boolean dragonDropsStone = true;
+	
+	@ConfigEntry.Gui.Tooltip
+	public boolean chestsHaveLoot = true;
 	
 	@ConfigEntry.Gui.Tooltip
 	public boolean dropsOnlyFromPlayerKill = false;

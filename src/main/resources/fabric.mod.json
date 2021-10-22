@@ -41,7 +41,7 @@
         "fabric": ">=0.40.1",
         "minecraft": "1.17.x",
         "java": ">=16",
-        "playerex": ">=3.0.5",
+        "playerex": ">=3.0.6",
         "trinkets": ">=3.0.1"
     }
 }

@@ -43,8 +43,8 @@ dependencies {
 	modImplementation "io.github.onyxstudios.Cardinal-Components-API:cardinal-components-level:${project.cardinal_components_version}"
 	
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
-	modImplementation "curse.maven:dataattributes-514734:3468573"
-	modImplementation "curse.maven:playerex-409221:3470132"
+	modImplementation "curse.maven:dataattributes-514734:3484768"
+	modImplementation "curse.maven:playerex-409221:3499244"
 	
 	modImplementation "com.github.clevernucleus:ArmorModelPredicate:0.0.1"
 	include "com.github.clevernucleus:ArmorModelPredicate:0.0.1"
