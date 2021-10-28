@@ -1,25 +1,85 @@
 {
 	"values": {
 		"minecraft:generic.max_health": {
-			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
 		"minecraft:generic.armor": {
-			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.01"
+		},
+		"minecraft:generic.armor_toughness": {
+			"weight": "r45:a50:x0.5:y5:z0.5:u0.05:v0.5:w0.01"
+		},
+		"minecraft:generic.attack_damage": {
+			"weight": "r50:a50:x0.25:y4:z0.25:u0.05:v0.5:w0.01"
+		},
+		"minecraft:generic.attack_speed": {
+			"weight": "r20:a50:x0.1:y2:z0.1:u0.05:v0.5:w0.01"
+		},
+		"minecraft:generic.knockback_resistance": {
+			"weight": "r70:a100:x0.01:y1:z0.01:u0.01:v0.5:w0.01"
+		},
+		"minecraft:generic.luck": {
+			"weight": "r10:a70:x0.2:y2:z0.2:u0.05:v0.5:w0.01"
+		},
+		"minecraft:generic.movement_speed": {
+			"weight": "r15:a30:x0.002:y0.1:z0.001:u0.05:v0.5:w0.01"
 		},
 		"playerex:constitution": {
-			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
 		"playerex:strength": {
-			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
 		"playerex:dexterity": {
-			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
 		"playerex:intelligence": {
-			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
 		"playerex:luckiness": {
-			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.001"
+			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
+		},
+		"playerex:evasion": {
+			"weight": "r30:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:lifesteal": {
+			"weight": "r30:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:health_regeneration": {
+			"weight": "r20:a100:x0.0005:y0.01:z0.0005:u0.01:v0.5:w0.01"
+		},
+		"playerex:heal_amplification": {
+			"weight": "r40:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:magic_resistance": {
+			"weight": "r50:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:fire_resistance": {
+			"weight": "r70:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:freeze_resistance": {
+			"weight": "r70:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:drowning_resistance": {
+			"weight": "r40:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:falling_resistance": {
+			"weight": "r40:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:wither_resistance": {
+			"weight": "r30:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:melee_crit_chance": {
+			"weight": "r40:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:melee_crit_damage": {
+			"weight": "r30:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:ranged_crit_chance": {
+			"weight": "r30:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
+		},
+		"playerex:ranged_crit_damage": {
+			"weight": "r40:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
 		}
 	}
 }

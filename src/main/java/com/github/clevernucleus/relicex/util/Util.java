@@ -76,7 +76,7 @@ public final class Util {
 		float weight = randomAttribute(collection);
 		float random = (float)Math.random();
 		
-		for(int i = 0; i < 5; i++) {
+		for(int i = 0; i < 4; i++) {
 			if(random > weight) continue;
 			
 			weight *= randomAttribute(collection);
