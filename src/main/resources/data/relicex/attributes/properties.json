@@ -1,8 +1,5 @@
 {
 	"values": {
-		"minecraft:generic.max_health": {
-			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.01"
-		},
 		"minecraft:generic.armor": {
 			"weight": "r65:a70:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
@@ -23,9 +20,6 @@
 		},
 		"minecraft:generic.movement_speed": {
 			"weight": "r15:a30:x0.002:y0.1:z0.001:u0.05:v0.5:w0.01"
-		},
-		"playerex:constitution": {
-			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
 		},
 		"playerex:strength": {
 			"weight": "r75:a60:x1:y10:z1:u0.05:v0.5:w0.01"
