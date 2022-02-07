@@ -6,8 +6,8 @@
     "description": "Bridges Trinkets and PlayerEx.",
     "authors": [
         "CleverNucleus",
-		"Bonsaiheldin | http://bonsaiheld.org",
-		"Joe Williamson | @JoeCreates"
+        "Bonsaiheldin | http://bonsaiheld.org",
+        "Joe Williamson | @JoeCreates"
     ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/relicex",
@@ -20,28 +20,16 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            "com.github.clevernucleus.relicex.RelicEx"
-        ],
-        "client": [
-            "com.github.clevernucleus.relicex.client.RelicExClient"
-        ],
-        "modmenu": [
-			"com.github.clevernucleus.relicex.impl.ModMenuCompat"
-		]
-    },
-    "custom": {
-        
+            
+        ]
     },
     "mixins": [
-        "relicex.mixins.json"
+        
     ],
-    
     "depends": {
-        "fabricloader": ">=0.11.3",
-        "fabric": ">=0.40.1",
-        "minecraft": "1.17.x",
-        "java": ">=16",
-        "playerex": ">=3.0.6",
-        "trinkets": ">=3.0.1"
+        "fabricloader": ">=0.12.12",
+        "fabric": "0.46.1",
+        "minecraft": "1.18.x",
+        "java": ">=17"
     }
 }
