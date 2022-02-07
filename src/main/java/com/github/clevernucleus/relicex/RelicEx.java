@@ -1,8 +1,10 @@
 package com.github.clevernucleus.relicex;
 
-import java.util.HashMap;
 import java.util.Map;
 
+import com.github.clevernucleus.relicex.item.HealthPotionItem;
+
+import it.unimi.dsi.fastutil.objects.Object2ObjectArrayMap;
 import net.fabricmc.api.ModInitializer;
 import net.minecraft.item.Item;
 import net.minecraft.sound.SoundEvent;
@@ -22,12 +24,16 @@ import net.minecraft.util.registry.Registry;
 public class RelicEx implements ModInitializer {
 	public static final String MODID = "relicex";
 	public static final String WEIGHT_PROPERTY = "weight";
-	public static final Map<String, Item> ITEMS = new HashMap<String, Item>();
+	public static final Map<String, Item> ITEMS = new Object2ObjectArrayMap<String, Item>();
 	public static final SoundEvent LEVEL_REFUND_SOUND = new SoundEvent(new Identifier(MODID, "level_refund"));
 	public static final SoundEvent POTION_USE_SOUND = new SoundEvent(new Identifier(MODID, "potion_use"));
 	
+	public static final Item SMALL_HEALTH_POTION = register("small_health_potion", new HealthPotionItem(4.0F));
+	public static final Item MEDIUM_HEALTH_POTION = register("medium_health_potion", new HealthPotionItem(6.0F));
+	public static final Item LARGE_HEALTH_POTION = register("large_health_potion", new HealthPotionItem(8.0F));
+	
 	private static Item register(final String keyIn, Item itemIn) {
-		return ITEMS.put(keyIn, Registry.register(Registry.ITEM, new Identifier(MODID, keyIn), itemIn));
+		return ITEMS.computeIfAbsent(keyIn, key -> Registry.register(Registry.ITEM, new Identifier(MODID, key), itemIn));
 	}
 	
 	@Override

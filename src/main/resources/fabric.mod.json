@@ -20,7 +20,7 @@
     "environment": "*",
     "entrypoints": {
         "main": [
-            
+            "com.github.clevernucleus.relicex.RelicEx"
         ]
     },
     "mixins": [
@@ -28,7 +28,8 @@
     ],
     "depends": {
         "fabricloader": ">=0.12.12",
-        "fabric": "0.46.1",
+        "fabric": ">=0.46.1",
+		"playerex": ">=3.1.4",
         "minecraft": "1.18.x",
         "java": ">=17"
     }

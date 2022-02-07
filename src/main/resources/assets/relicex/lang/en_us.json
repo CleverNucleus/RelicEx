@@ -1,4 +1,7 @@
 {
+	"item.relicex.small_health_potion": "Small Health Potion",
+    "item.relicex.medium_health_potion": "Medium Health Potion",
+    "item.relicex.large_health_potion": "Large Health Potion",
     "sound.relicex.level_refund": "Refund Level",
     "sound.relicex.potion_use": "Potion Use"
 }
