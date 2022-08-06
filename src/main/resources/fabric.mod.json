@@ -11,7 +11,7 @@
     ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/relicex",
-        "sources": "https://github.com/CleverNucleus/PlayerExRelics"
+        "sources": "https://github.com/CleverNucleus/RelicEx"
     },
     
     "license": "MIT",
@@ -21,16 +21,24 @@
     "entrypoints": {
         "main": [
             "com.github.clevernucleus.relicex.RelicEx"
+        ],
+        "client": [
+            "com.github.clevernucleus.relicex.RelicExClient"
+        ],
+        "modmenu": [
+        	"com.github.clevernucleus.relicex.config.ModMenuCompat"
         ]
     },
     "mixins": [
-        
+        "relicex.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.12.12",
-        "fabric": ">=0.46.1",
-		"playerex": ">=3.1.4",
-        "minecraft": "1.18.x",
+        "fabricloader": ">=0.14.6",
+        "fabric": ">=0.55.1",
+		"playerex": ">=3.2.4",
+        "trinkets": ">=3.3.1",
+        "cloth-config": ">=6.0.0",
+        "minecraft": "1.18.2",
         "java": ">=17"
     }
 }

@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:smelting",
+    "cookingtime": 200,
+    "experience": 0.7,
+    "ingredient": {
+        "tag": "relicex:relics"
+    },
+    "result": "relicex:relic_shard"
+}

@@ -1,50 +1,50 @@
 {
 	"parent": "item/generated",
 	"textures": {
-		"layer0": "relicex:items/body_0"
+		"layer0": "relicex:items/chest_0"
 	},
 	"overrides": [
 		{
 			"predicate": {
 				"relicex:rareness": 0.0
 			},
-			"model": "relicex:item/body_relic"
+			"model": "relicex:item/chest_relic"
 		},
 		{
 			"predicate": {
 				"relicex:rareness": 0.1
 			},
-			"model": "relicex:item/body/body_1"
+			"model": "relicex:item/chest/chest_1"
 		},
 		{
 			"predicate": {
 				"relicex:rareness": 0.2
 			},
-			"model": "relicex:item/body/body_2"
+			"model": "relicex:item/chest/chest_2"
 		},
 		{
 			"predicate": {
 				"relicex:rareness": 0.3
 			},
-			"model": "relicex:item/body/body_3"
+			"model": "relicex:item/chest/chest_3"
 		},
 		{
 			"predicate": {
 				"relicex:rareness": 0.4
 			},
-			"model": "relicex:item/body/body_4"
+			"model": "relicex:item/chest/chest_4"
 		},
 		{
 			"predicate": {
 				"relicex:rareness": 0.5
 			},
-			"model": "relicex:item/body/body_5"
+			"model": "relicex:item/chest/chest_5"
 		},
 		{
 			"predicate": {
 				"relicex:rareness": 0.6
 			},
-			"model": "relicex:item/body/body_6"
+			"model": "relicex:item/chest/chest_6"
 		}
 	]
 }

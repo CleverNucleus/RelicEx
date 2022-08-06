@@ -13,7 +13,7 @@ import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.world.World;
 
-public final class HealthPotionItem extends Item {
+public class HealthPotionItem extends Item {
 	private final float amount;
 	
 	public HealthPotionItem(final float amount) {
@@ -22,14 +22,13 @@ public final class HealthPotionItem extends Item {
 	}
 	
 	@Override
-	public void inventoryTick(ItemStack itemStack, World world, Entity entity, int slot, boolean selected) {
+	public void inventoryTick(ItemStack stack, World world, Entity entity, int slot, boolean selected) {
 		if(entity == null || !(entity instanceof LivingEntity)) return;
-		
-		final LivingEntity livingEntity = (LivingEntity)entity;
-		final Random random = new Random();
+		LivingEntity livingEntity = (LivingEntity)entity;
 		
 		if(world.isClient) {
 			world.playSound(livingEntity.getX(), livingEntity.getY(), livingEntity.getZ(), RelicEx.POTION_USE_SOUND, SoundCategory.NEUTRAL, 0.75F, 1.0F, true);
+			Random random = livingEntity.getRandom();
 			
 			for(int i = 0; i < 6; i++) {
 				double d = random.nextGaussian() * 0.02D;
@@ -40,7 +39,7 @@ public final class HealthPotionItem extends Item {
 			}
 		} else {
 			livingEntity.heal(this.amount);
-			itemStack.decrement(1);
+			stack.decrement(1);
 		}
 	}
 }

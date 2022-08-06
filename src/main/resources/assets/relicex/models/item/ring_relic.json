@@ -3,6 +3,7 @@
 	"textures": {
 		"layer0": "relicex:items/ring_0"
 	},
+	
 	"overrides": [
 		{
 			"predicate": {
