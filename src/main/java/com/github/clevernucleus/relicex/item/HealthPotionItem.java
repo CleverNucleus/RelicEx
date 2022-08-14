@@ -1,7 +1,5 @@
 package com.github.clevernucleus.relicex.item;
 
-import java.util.Random;
-
 import com.github.clevernucleus.relicex.RelicEx;
 
 import net.minecraft.entity.Entity;
@@ -11,6 +9,7 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.particle.ParticleTypes;
 import net.minecraft.sound.SoundCategory;
+import net.minecraft.util.math.random.Random;
 import net.minecraft.world.World;
 
 public class HealthPotionItem extends Item {

@@ -23,7 +23,6 @@ import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 
 @Mixin(value = ItemStack.class, priority = 1001)
@@ -62,17 +61,17 @@ abstract class ItemStackMixin {
 					g *= 100.0D;
 				}
 				
-				Text text = new TranslatableText(attribute.getTranslationKey());
+				Text text = Text.translatable(attribute.getTranslationKey());
 				
 				if(attribute instanceof SlotAttributes.SlotEntityAttribute) {
-					text = new TranslatableText("trinkets.tooltip.attributes.slots", text);
+					text = Text.translatable("trinkets.tooltip.attributes.slots", text);
 				}
 				
 				if(g > 0.0D) {
-					list.add(new TranslatableText("attribute.modifier.plus." + modifier.getOperation().getId(), ItemStack.MODIFIER_FORMAT.format(g) + p, text).formatted(Formatting.BLUE));
+					list.add(Text.translatable("attribute.modifier.plus." + modifier.getOperation().getId(), ItemStack.MODIFIER_FORMAT.format(g) + p, text).formatted(Formatting.BLUE));
 				} else if(g < 0.0D) {
 					g *= -1.0D;
-					list.add(new TranslatableText("attribute.modifier.take." + modifier.getOperation().getId(), ItemStack.MODIFIER_FORMAT.format(g) + p, text).formatted(Formatting.RED));
+					list.add(Text.translatable("attribute.modifier.take." + modifier.getOperation().getId(), ItemStack.MODIFIER_FORMAT.format(g) + p, text).formatted(Formatting.RED));
 				}
 			}
 		}

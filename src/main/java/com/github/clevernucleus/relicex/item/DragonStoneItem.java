@@ -20,7 +20,6 @@ import net.minecraft.nbt.NbtList;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Rarity;
@@ -61,8 +60,7 @@ public class DragonStoneItem extends Item {
 	
 	@Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add((new TranslatableText("tooltip.relicex.dragon_stone")).formatted(Formatting.GRAY));
-		
+		tooltip.add(Text.translatable("tooltip.relicex.dragon_stone").formatted(Formatting.GRAY));
 	}
 	
 	@Override
@@ -93,7 +91,7 @@ public class DragonStoneItem extends Item {
 			}
 			
 			if(world.isClient) {
-				user.sendMessage(new TranslatableText("message.relicex.dragon_stone"), true);
+				user.sendMessage(Text.translatable("message.relicex.dragon_stone"), true);
 			}
 			
 			return super.use(world, user, hand);

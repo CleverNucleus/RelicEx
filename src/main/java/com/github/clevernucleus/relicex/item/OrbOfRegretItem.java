@@ -14,7 +14,6 @@ import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.Hand;
 import net.minecraft.util.Rarity;
@@ -31,7 +30,7 @@ public class OrbOfRegretItem extends Item {
 	
 	@Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
-		tooltip.add((new TranslatableText("tooltip.relicex." + (this.greater ? "greater" : "lesser") + "_orb_of_regret")).formatted(Formatting.GRAY));
+		tooltip.add(Text.translatable("tooltip.relicex." + (this.greater ? "greater" : "lesser") + "_orb_of_regret").formatted(Formatting.GRAY));
 	}
 	
 	@Override

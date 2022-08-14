@@ -8,7 +8,6 @@ import com.github.clevernucleus.relicex.RelicEx;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
-import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 
@@ -72,7 +71,7 @@ public enum Rareness {
 	}
 	
 	public Text formatted() {
-		return (new TranslatableText("rareness." + RelicEx.MODID + "." + this.key)).formatted(this.formatting);
+		return Text.translatable("rareness." + RelicEx.MODID + "." + this.key).formatted(this.formatting);
 	}
 	
 	@Override
