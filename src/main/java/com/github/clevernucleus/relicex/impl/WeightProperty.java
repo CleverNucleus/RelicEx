@@ -4,10 +4,9 @@ import java.util.Collection;
 import java.util.EnumMap;
 import java.util.Map;
 
-import org.apache.commons.compress.utils.Sets;
-
 import com.github.clevernucleus.dataattributes.api.util.Maths;
 import com.github.clevernucleus.dataattributes.api.util.RandDistribution;
+import com.google.common.collect.Sets;
 
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 

@@ -1,6 +1,9 @@
+import com.modrinth.minotaur.dependencies.ModDependency
+
 plugins {
 	id 'fabric-loom' version '0.11-SNAPSHOT'
 	id 'maven-publish'
+	id "com.modrinth.minotaur" version "2.+"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -96,4 +99,21 @@ publishing {
 	repositories {
 		
 	}
+}
+
+modrinth {
+	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+	System.out.println("Enter a Modrinth token: ");
+	token = br.readLine();
+	projectId = "LwwtuiRk"
+	versionNumber = "${project.mod_version}"
+	versionName = "${project.mod_version}"
+	uploadFile = remapJar
+	gameVersions = ["${project.minecraft_version}"]
+	loaders = ["fabric"]
+	dependencies = [
+		new ModDependency("trinkets", "required"),
+        new ModDependency("playerex", "required"),
+		new ModDependency("armor-render-lib", "embedded")
+	]
 }
