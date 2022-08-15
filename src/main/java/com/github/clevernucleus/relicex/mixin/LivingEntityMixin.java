@@ -33,7 +33,7 @@ abstract class LivingEntityMixin {
 		
 		if(config.dropsOnlyFromPlayerKills && !causedByPlayer) return;
 		float chance = 0.01F * (float)config.mobsDropLootChance;
-		float roll = (source.getAttacker() instanceof LivingEntity) ? (float)(double)DataAttributesAPI.ifPresent((LivingEntity)source.getAttacker(), () -> EntityAttributes.GENERIC_LUCK, chance, value -> chance * (1.0F + value)) : chance;
+		float roll = (source.getAttacker() instanceof LivingEntity) ? DataAttributesAPI.ifPresent((LivingEntity)source.getAttacker(), () -> EntityAttributes.GENERIC_LUCK, chance, value -> chance * (1.0F + (float)(double)value)) : chance;
 		
 		if(!(random.nextFloat() < roll)) return;
 		RandDistribution<Item> distributor = new RandDistribution<Item>(Items.AIR);
