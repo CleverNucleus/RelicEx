@@ -118,7 +118,7 @@ modrinth {
 	loaders = ["fabric"]
 	dependencies = [
 		new VersionDependency("WiXqMygm", "required"),
-        new VersionDependency("YqWEluRC", "required"),
-		new VersionDependency("PEU6HIWI", "embedded")
+        new VersionDependency("iv7dDXiw", "required"),
+		new VersionDependency("tnq7cqef", "embedded")
 	]
 }
