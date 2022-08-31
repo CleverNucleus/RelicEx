@@ -1,7 +1,7 @@
-import com.modrinth.minotaur.dependencies.ModDependency
+import com.modrinth.minotaur.dependencies.VersionDependency
 
 plugins {
-	id 'fabric-loom' version '0.12-SNAPSHOT'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
 	id 'maven-publish'
     id "com.modrinth.minotaur" version "2.+"
 }
@@ -49,13 +49,18 @@ dependencies {
 	
 	modImplementation "maven.modrinth:data-attributes:${project.dataattributes_version}"
 	modImplementation "maven.modrinth:offline-player-cache:${project.opc_version}"
-	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_components_version}"
-	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_components_version}"
+	
+	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_components_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+    modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_components_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
+	
 	modImplementation include("eu.pb4:placeholder-api:${project.placeholder_api}")
 	implementation 'net.objecthunter:exp4j:0.4.8'
 	modImplementation "maven.modrinth:playerex:${project.playerex_version}"
-	modImplementation "maven.modrinth:armor-render-lib:${project.arl_version}"
-	include "maven.modrinth:armor-render-lib:${project.arl_version}"
+	modImplementation include("maven.modrinth:armor-render-lib:${project.arl_version}")
 	modImplementation "dev.emi:trinkets:${project.trinkets_version}"
 	
 	modApi("me.shedaniel.cloth:cloth-config-fabric:${project.cloth_config_version}") {
@@ -112,8 +117,8 @@ modrinth {
 	gameVersions = ["${project.minecraft_version}"]
 	loaders = ["fabric"]
 	dependencies = [
-		new ModDependency("trinkets", "required"),
-        new ModDependency("playerex", "required"),
-		new ModDependency("armor-render-lib", "embedded")
+		new VersionDependency("WiXqMygm", "required"),
+        new VersionDependency("YqWEluRC", "required"),
+		new VersionDependency("PEU6HIWI", "embedded")
 	]
 }

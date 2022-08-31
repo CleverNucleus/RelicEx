@@ -33,9 +33,9 @@
         "relicex.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.14.6",
+        "fabricloader": ">=0.14.9",
         "fabric": ">=0.58.0",
-		"playerex": ">=3.3.4",
+		"playerex": ">=3.3.6",
         "trinkets": ">=3.4.0",
         "cloth-config": ">=8.0.0",
         "minecraft": "1.19",
