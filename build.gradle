@@ -1,7 +1,7 @@
-import com.modrinth.minotaur.dependencies.ModDependency
+import com.modrinth.minotaur.dependencies.VersionDependency
 
 plugins {
-	id 'fabric-loom' version '0.11-SNAPSHOT'
+	id 'fabric-loom' version '1.0-SNAPSHOT'
 	id 'maven-publish'
 	id "com.modrinth.minotaur" version "2.+"
 }
@@ -112,8 +112,8 @@ modrinth {
 	gameVersions = ["${project.minecraft_version}"]
 	loaders = ["fabric"]
 	dependencies = [
-		new ModDependency("trinkets", "required"),
-        new ModDependency("playerex", "required"),
-		new ModDependency("armor-render-lib", "embedded")
+		new VersionDependency("XqLNMi9J", "required"),
+        new VersionDependency("57yu679W", "required"),
+		new VersionDependency("eg2fdUIU", "embedded")
 	]
 }
