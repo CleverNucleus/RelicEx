@@ -7,6 +7,7 @@ import com.github.clevernucleus.dataattributes.api.item.ItemHelper;
 import com.github.clevernucleus.relicex.impl.EntityAttributeCollection;
 import com.github.clevernucleus.relicex.impl.Rareness;
 import com.github.clevernucleus.relicex.impl.RelicType;
+import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
 import dev.emi.trinkets.api.SlotReference;
@@ -59,7 +60,7 @@ public class RelicItem extends TrinketItem implements ItemHelper {
 		String key = slotType.getGroup() + "/" + slotType.getName();
 		NbtCompound tag = stack.getOrCreateNbt();
 		var modifiers = super.getModifiers(stack, slot, entity, uuid);
-		EntityAttributeCollection.readFromNbt(tag, key, modifiers);
+		EntityAttributeCollection.readFromNbt(tag, key, modifiers, ArrayListMultimap.create());
 		
 		return modifiers;
 	}

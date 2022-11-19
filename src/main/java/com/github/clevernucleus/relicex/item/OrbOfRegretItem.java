@@ -52,7 +52,7 @@ public class OrbOfRegretItem extends Item {
 			
 			if(!(value > 0.0D) || !(refundPoints > 0)) return super.use(world, user, hand);
 			if(world.isClient) {
-				user.playSound(RelicEx.LEVEL_REFUND_SOUND, SoundCategory.NEUTRAL, 0.75F, 1.0F);
+				user.playSound(RelicEx.LEVEL_REFUND_SOUND, SoundCategory.NEUTRAL, ExAPI.getConfig().skillUpVolume(), 1.0F);
 			} else {
 				playerData.addRefundPoints(this.greater ? refundPoints : 1);
 				
