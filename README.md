@@ -35,6 +35,8 @@ All randomness and chance to drop is weighted and fully configurable.
 #### Misc
 
 - Unwanted Relics can be smelted down into Relic Shards, which can be smashed to drop Experience Points.
+- Chest and Head Relics can be affixed to chestplates and helmets by equipping an armor item and right-clicking the Relic whilst crouching.
+- Chest and Head Relics can be repaired with Relic Shards.
 - Health Potions cannot be stored, they heal the instant that they are picked up.
 - The Dragon Stone drops from the Ender Dragon upon death (configurable). Care should be taken when handling it as using it will reset the player's attributes, Levels and Skill Points. For this sake a safety is implemented, such that it must be right-clicked twice.
 
@@ -42,3 +44,4 @@ All randomness and chance to drop is weighted and fully configurable.
 
 - [Bonsaiheldin](https://opengameart.org/content/shiny-rpg-potions-16x16)
 - [Joe Williamson](https://twitter.com/joecreates)
+- [MoneySoup008](https://github.com/MoneySoup008)

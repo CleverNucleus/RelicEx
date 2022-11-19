@@ -48,7 +48,7 @@ public class TomeItem extends Item {
 			ExConfig config = ExAPI.getConfig();
 			
 			if(world.isClient) {
-				user.playSound(RelicEx.LEVEL_REFUND_SOUND, SoundCategory.NEUTRAL, 0.75F, 1.0F);
+				user.playSound(RelicEx.LEVEL_REFUND_SOUND, SoundCategory.NEUTRAL, ExAPI.getConfig().levelUpVolume(), 1.0F);
 			} else {	
 				playerData.add(ExAPI.LEVEL, 1);
 				playerData.addSkillPoints(config.skillPointsPerLevelUp());

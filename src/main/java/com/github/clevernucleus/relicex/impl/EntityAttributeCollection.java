@@ -1,6 +1,8 @@
 package com.github.clevernucleus.relicex.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.function.BiConsumer;
 import java.util.function.Consumer;
@@ -66,7 +68,7 @@ public final class EntityAttributeCollection {
 		}) + (0.3F * weight.rarity());
 	}
 	
-	public static void readFromNbt(NbtCompound tag, String slot, Multimap<EntityAttribute, EntityAttributeModifier> modifiers) {
+	public static void readFromNbt(NbtCompound tag, String slot, Multimap<EntityAttribute, EntityAttributeModifier> modifiersNBT, Multimap<EntityAttribute, EntityAttributeModifier> modifiersITM) {
 		if(!tag.contains(KEY_ATTRIBUTES, NbtType.LIST)) return;
 		NbtList list = tag.getList(KEY_ATTRIBUTES, NbtType.COMPOUND);
 		
@@ -78,12 +80,42 @@ public final class EntityAttributeCollection {
 			if(attribute.get() == null) continue;
 			Operation operation = Operation.fromId((int)entry.getByte(KEY_OPERATION));
 			EntityAttributeModifier modifier = new EntityAttributeModifier(SlotKey.from(slot).uuid(), "RelicEx Modifier", entry.getDouble(KEY_VALUE), operation);
-			modifiers.put(attribute.get(), modifier);
+			modifiersNBT.put(attribute.get(), modifier);
+		}
+		
+		for(EntityAttribute attributeITM : modifiersITM.keySet()) {
+			var collectionITM = modifiersITM.get(attributeITM);
+			
+			if(modifiersNBT.containsKey(attributeITM)) {
+				List<EntityAttributeModifier> temp = new ArrayList<>();
+				var collectionNBT = modifiersNBT.get(attributeITM);
+				
+				for(EntityAttributeModifier modifierITM : collectionITM) {
+					Operation operationITM = modifierITM.getOperation();
+					
+					for(EntityAttributeModifier modifierNBT : collectionNBT) {
+						Operation operationNBT = modifierNBT.getOperation();
+						
+						if(operationITM == operationNBT) {
+							EntityAttributeModifier modifier3 = new EntityAttributeModifier(modifierITM.getId(), "RelicEx Modifier", Math.max(modifierITM.getValue(), modifierNBT.getValue()), operationITM);
+							temp.add(modifier3);
+						} else {
+							temp.add(modifierITM);
+							temp.add(modifierNBT);
+						}
+					}
+				}
+				
+				modifiersNBT.removeAll(attributeITM);
+				modifiersNBT.putAll(attributeITM, temp);
+			} else {
+				modifiersNBT.putAll(attributeITM, collectionITM);
+			}
 		}
 	}
 	
-	public static float getValueIfArmor(NbtCompound tag, EntityAttribute attributeIn) {
-		if(!tag.contains(KEY_ATTRIBUTES, NbtType.LIST)) return 0.0F;
+	public static float getValueIfArmor(NbtCompound tag, EntityAttribute attributeIn, float fallback) {
+		if(!tag.contains(KEY_ATTRIBUTES, NbtType.LIST)) return fallback;
 		NbtList list = tag.getList(KEY_ATTRIBUTES, NbtType.COMPOUND);
 		
 		for(int i = 0; i < list.size(); i++) {
@@ -95,7 +127,7 @@ public final class EntityAttributeCollection {
 			return (float)entry.getDouble(KEY_VALUE);
 		}
 		
-		return 0.0F;
+		return fallback;
 	}
 	
 	public void writeToNbt(NbtCompound tag) {
