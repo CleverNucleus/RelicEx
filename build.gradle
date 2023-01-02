@@ -56,6 +56,9 @@ dependencies {
     modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_components_version}") {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
+	modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-chunk:${project.cardinal_components_version}") {
+		exclude(group: "net.fabricmc.fabric-api")
+	}
 	
 	modImplementation include("eu.pb4:placeholder-api:${project.placeholder_api}")
 	implementation 'net.objecthunter:exp4j:0.4.8'
@@ -118,7 +121,7 @@ modrinth {
 	loaders = ["fabric"]
 	dependencies = [
 		new VersionDependency("WiXqMygm", "required"),
-        new VersionDependency("iv7dDXiw", "required"),
+        new VersionDependency("h5tJ7cyw", "required"),
 		new VersionDependency("tnq7cqef", "embedded")
 	]
 }
