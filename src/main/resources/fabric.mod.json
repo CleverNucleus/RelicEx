@@ -35,7 +35,7 @@
     "depends": {
         "fabricloader": ">=0.14.10",
         "fabric": ">=0.66.0",
-		"playerex": ">=3.2.7",
+		"playerex": ">=3.4.0",
         "trinkets": ">=3.3.1",
         "cloth-config": ">=6.0.0",
         "minecraft": "1.18.2",

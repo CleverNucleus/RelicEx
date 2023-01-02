@@ -51,6 +51,7 @@ dependencies {
 	modImplementation "maven.modrinth:offline-player-cache:${project.opc_version}"
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cardinal_components_version}"
 	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cardinal_components_version}"
+	modImplementation "dev.onyxstudios.cardinal-components-api:cardinal-components-chunk:${project.cardinal_components_version}"
 	modImplementation include("eu.pb4:placeholder-api:${project.placeholder_api}")
 	implementation 'net.objecthunter:exp4j:0.4.8'
 	modImplementation "maven.modrinth:playerex:${project.playerex_version}"
@@ -113,7 +114,7 @@ modrinth {
 	loaders = ["fabric"]
 	dependencies = [
 		new VersionDependency("XqLNMi9J", "required"),
-        new VersionDependency("57yu679W", "required"),
+        new VersionDependency("rb058LpZ", "required"),
 		new VersionDependency("eg2fdUIU", "embedded")
 	]
 }

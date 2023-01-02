@@ -6,7 +6,8 @@
     "mixins": [
         "LivingEntityMixin",
         "ArmorItemMixin",
-        "RepairItemRecipeMixin"
+        "RepairItemRecipeMixin",
+        "SmithingScreenHandlerMixin"
     ],
     "client": [
     	"client.ItemStackMixin"

@@ -16,20 +16,14 @@ import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributes;
-import net.minecraft.entity.mob.MobEntity;
-import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterials;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
-import net.minecraft.nbt.NbtList;
-import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
-import net.minecraft.util.Hand;
-import net.minecraft.util.TypedActionResult;
 import net.minecraft.world.World;
 
 public class ArmorRelicItem extends ArmorItem implements ItemHelper {
@@ -51,37 +45,6 @@ public class ArmorRelicItem extends ArmorItem implements ItemHelper {
 		NbtCompound tag = itemStack.getOrCreateNbt();
 		EntityAttributeCollection collection = new EntityAttributeCollection();
 		collection.writeToNbt(tag);
-	}
-	
-	@Override
-    public TypedActionResult<ItemStack> use(World world, PlayerEntity user, Hand hand) {
-		if(!user.isSneaking()) return super.use(world, user, hand);
-		
-		ItemStack itemStack = user.getStackInHand(hand);
-        EquipmentSlot equipmentSlot = MobEntity.getPreferredEquipmentSlot(itemStack);
-        ItemStack itemStack2 = user.getEquippedStack(equipmentSlot);
-        Item item = itemStack2.getItem();
-        
-        if(item instanceof ArmorItem && !(item instanceof ArmorRelicItem)) {
-        	NbtCompound tag2 = itemStack2.getOrCreateNbt();
-        	
-        	if(!tag2.contains(EntityAttributeCollection.KEY_ATTRIBUTES)) {
-        		if(!world.isClient) {
-	        		NbtCompound tag = itemStack.getOrCreateNbt();
-	        		NbtList list = tag.getList(EntityAttributeCollection.KEY_ATTRIBUTES, NbtType.COMPOUND);
-	        		String rareness = tag.getString(EntityAttributeCollection.KEY_RARENESS);
-	        		tag2.put(EntityAttributeCollection.KEY_ATTRIBUTES, list);
-	        		tag2.putString(EntityAttributeCollection.KEY_RARENESS, rareness);
-        		} else {
-        			user.playSound(this.getEquipSound(itemStack), SoundCategory.NEUTRAL, 0.75F, 1.0F);
-        		}
-        		
-        		itemStack.setCount(0);
-        		return TypedActionResult.success(itemStack, world.isClient);
-        	}
-        }
-        
-        return super.use(world, user, hand);
 	}
 	
 	@Override

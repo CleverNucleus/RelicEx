@@ -46,8 +46,7 @@ public class OrbOfRegretItem extends Item {
 			PlayerData playerData = ExAPI.PLAYER_DATA.get(user);
 			int refundPoints = 0;
 			
-			// Note: com.github.clevernucleus.playerex.impl.RefundConditionImpl is not yet exposed in the API
-			for(var refundCondition : com.github.clevernucleus.playerex.impl.RefundConditionImpl.get()) {
+			for(var refundCondition : ExAPI.getRefundConditions()) {
 				refundPoints += refundCondition.apply(playerData, user);
 			}
 			
