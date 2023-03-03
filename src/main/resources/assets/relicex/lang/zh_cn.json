@@ -26,6 +26,8 @@
   "text.autoconfig.relicex.option.mobDropIsGreaterOrbChance.@Tooltip": "由RelicEx强化的怪物掉落大悔过宝珠的几率",
   "text.autoconfig.relicex.option.mobDropIsTomeChance": "怪物掉落宝典几率",
   "text.autoconfig.relicex.option.mobDropIsTomeChance.@Tooltip": "由RelicEx强化的怪物掉落宝典的几率",
+  "text.autoconfig.relicex.option.mobDropBlacklist": "掉落战利品怪物黑名单",
+  "text.autoconfig.relicex.option.mobDropBlacklist.@Tooltip": "所设定类型的实体不会掉落遗物及生命药水。",
   "item.relicex.small_health_potion": "小瓶生命药水",
   "item.relicex.medium_health_potion": "中瓶生命药水",
   "item.relicex.large_health_potion": "大瓶生命药水",
