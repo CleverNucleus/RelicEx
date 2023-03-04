@@ -26,6 +26,8 @@
 	"text.autoconfig.relicex.option.mobDropIsGreaterOrbChance.@Tooltip": "The chance for a RelicEx mob drop to be a Greater Orb of Regret.",
 	"text.autoconfig.relicex.option.mobDropIsTomeChance": "Mob Drop is Tome",
 	"text.autoconfig.relicex.option.mobDropIsTomeChance.@Tooltip": "The chance for a RelicEx mob drop to be a Tome.",
+	"text.autoconfig.relicex.option.mobDropBlacklist": "Mob Drop Blacklist",
+	"text.autoconfig.relicex.option.mobDropBlacklist.@Tooltip": "Entity types in this list will not drop relics/health potions.",
 	"item.relicex.small_health_potion": "Small Health Potion",
     "item.relicex.medium_health_potion": "Medium Health Potion",
     "item.relicex.large_health_potion": "Large Health Potion",

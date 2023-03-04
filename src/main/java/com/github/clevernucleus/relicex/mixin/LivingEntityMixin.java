@@ -12,6 +12,7 @@ import com.github.clevernucleus.dataattributes.api.util.RandDistribution;
 import com.github.clevernucleus.relicex.RelicEx;
 import com.github.clevernucleus.relicex.config.RelicExConfig;
 
+import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.attribute.EntityAttributes;
 import net.minecraft.entity.damage.DamageSource;
@@ -26,9 +27,9 @@ abstract class LivingEntityMixin {
 	@Inject(method = "dropLoot", at = @At("TAIL"))
 	private void relicex_dropLoot(DamageSource source, boolean causedByPlayer, CallbackInfo ci) {
 		LivingEntity livingEntity = (LivingEntity)(Object)this;
-		
-		if(!(livingEntity instanceof Monster)) return;
 		RelicExConfig config = RelicEx.config();
+		
+		if(!(livingEntity instanceof Monster) || config.mobDropBlacklist.contains(EntityType.getId(livingEntity.getType()).toString())) return;
 		Random random = new Random();
 		
 		if(config.dropsOnlyFromPlayerKills && !causedByPlayer) return;

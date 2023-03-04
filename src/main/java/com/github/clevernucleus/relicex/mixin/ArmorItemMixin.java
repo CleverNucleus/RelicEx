@@ -32,10 +32,6 @@ abstract class ArmorItemMixin extends Item implements ItemHelper {
 	@Final
 	protected EquipmentSlot slot;
 	
-	@Shadow
-	@Final
-	private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-	
 	private ArmorItemMixin(Settings settings) { super(settings); }
 	
 	@Override
@@ -51,9 +47,10 @@ abstract class ArmorItemMixin extends Item implements ItemHelper {
 	public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(ItemStack stack, EquipmentSlot slot) {
 		NbtCompound tag = stack.getOrCreateNbt();
 		Multimap<EntityAttribute, EntityAttributeModifier> modifiers = ArrayListMultimap.create();
-		EntityAttributeCollection.readFromNbt(tag, this.slot.getName(), modifiers, this.attributeModifiers);
+		Multimap<EntityAttribute, EntityAttributeModifier> fallbacks = super.getAttributeModifiers(stack, slot);
+		EntityAttributeCollection.readFromNbt(tag, this.slot.getName(), modifiers, fallbacks);
 		
-		return slot == this.slot ? (modifiers.isEmpty() ? this.attributeModifiers : modifiers) : super.getAttributeModifiers(stack, slot);
+		return slot == this.slot ? (modifiers.isEmpty() ? fallbacks : modifiers) : fallbacks;
 	}
 	
 	@Override

@@ -1,7 +1,7 @@
 import com.modrinth.minotaur.dependencies.VersionDependency
 
 plugins {
-	id 'fabric-loom' version '1.0-SNAPSHOT'
+	id 'fabric-loom' version '1.1-SNAPSHOT'
 	id 'maven-publish'
 	id "com.modrinth.minotaur" version "2.+"
 }
@@ -114,7 +114,7 @@ modrinth {
 	loaders = ["fabric"]
 	dependencies = [
 		new VersionDependency("XqLNMi9J", "required"),
-        new VersionDependency("rb058LpZ", "required"),
+        new VersionDependency("nGjEofGc", "required"),
 		new VersionDependency("eg2fdUIU", "embedded")
 	]
 }
