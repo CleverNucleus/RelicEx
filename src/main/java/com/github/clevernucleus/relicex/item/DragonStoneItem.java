@@ -8,13 +8,13 @@ import com.github.clevernucleus.playerex.api.ExAPI;
 import com.github.clevernucleus.playerex.api.PlayerData;
 import com.mojang.authlib.GameProfile;
 
-import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtHelper;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.sound.SoundCategory;
@@ -40,8 +40,8 @@ public class DragonStoneItem extends Item {
 		if(uuid == null) return false;
 		NbtCompound tag = stack.getOrCreateNbt();
 		
-		if(tag.contains("Users", NbtType.LIST)) {
-			NbtList users = tag.getList("Users", NbtType.INT_ARRAY);
+		if(tag.contains("Users", NbtElement.LIST_TYPE)) {
+			NbtList users = tag.getList("Users", NbtElement.INT_ARRAY_TYPE);
 			
 			for(int i = 0; i < users.size(); i++) {
 				UUID uuid2 = NbtHelper.toUuid(users.get(i));

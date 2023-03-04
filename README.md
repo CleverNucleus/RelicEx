@@ -42,6 +42,7 @@ All randomness and chance to drop is weighted and fully configurable.
 
 #### Contributors/Credits
 
-- [Bonsaiheldin](https://opengameart.org/content/shiny-rpg-potions-16x16)
-- [Joe Williamson](https://twitter.com/joecreates)
-- [MoneySoup008](https://github.com/MoneySoup008)
+- [Bonsaiheldin](https://opengameart.org/content/shiny-rpg-potions-16x16) | Texures
+- [Joe Williamson](https://twitter.com/joecreates) | Textures
+- [MoneySoup008](https://github.com/MoneySoup008) | Chinese translation
+- [ChromaPIE](https://github.com/ChromaPIE) | Chinese translation

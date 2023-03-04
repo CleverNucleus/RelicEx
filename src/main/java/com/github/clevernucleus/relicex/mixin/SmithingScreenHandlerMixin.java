@@ -9,13 +9,13 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import com.github.clevernucleus.relicex.impl.EntityAttributeCollection;
 import com.github.clevernucleus.relicex.item.ArmorRelicItem;
 
-import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.screen.ForgingScreenHandler;
 import net.minecraft.screen.ScreenHandlerContext;
@@ -48,7 +48,7 @@ abstract class SmithingScreenHandlerMixin extends ForgingScreenHandler {
 				ItemStack itemStack3 = itemStack.copy();
 				NbtCompound tag = itemStack2.getNbt();
 				NbtCompound tag2 = itemStack3.getOrCreateNbt();
-        		NbtList list = tag.getList(EntityAttributeCollection.KEY_ATTRIBUTES, NbtType.COMPOUND);
+        		NbtList list = tag.getList(EntityAttributeCollection.KEY_ATTRIBUTES, NbtElement.COMPOUND_TYPE);
         		String rareness = tag.getString(EntityAttributeCollection.KEY_RARENESS);
         		tag2.put(EntityAttributeCollection.KEY_ATTRIBUTES, list);
         		tag2.putString(EntityAttributeCollection.KEY_RARENESS, rareness);

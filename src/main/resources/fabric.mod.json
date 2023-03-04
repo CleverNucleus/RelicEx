@@ -5,9 +5,7 @@
     "name": "RelicEx",
     "description": "Bridges Trinkets and PlayerEx.",
     "authors": [
-        "CleverNucleus",
-        "Bonsaiheldin | http://bonsaiheld.org",
-        "Joe Williamson | @JoeCreates"
+        "CleverNucleus"
     ],
     "contact": {
         "homepage": "https://www.curseforge.com/minecraft/mc-mods/relicex",
@@ -33,9 +31,9 @@
         "relicex.mixins.json"
     ],
     "depends": {
-        "fabricloader": ">=0.14.10",
-        "fabric-api": ">=0.66.0",
-		"playerex": ">=3.5.0",
+        "fabricloader": ">=0.14.14",
+        "fabric-api": ">=0.75.1",
+		"playerex": ">=3.5.2",
         "trinkets": ">=3.4.0",
         "cloth-config": ">=8.0.0",
         "minecraft": "1.19.2",

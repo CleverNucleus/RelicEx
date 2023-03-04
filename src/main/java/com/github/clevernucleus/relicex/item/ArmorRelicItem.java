@@ -10,7 +10,6 @@ import com.github.clevernucleus.relicex.impl.RelicType;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
-import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -22,6 +21,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
@@ -35,7 +35,7 @@ public class ArmorRelicItem extends ArmorItem implements ItemHelper {
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		NbtCompound tag = stack.getNbt();
 		
-		if(tag == null || !tag.contains(EntityAttributeCollection.KEY_RARENESS, NbtType.STRING)) return;
+		if(tag == null || !tag.contains(EntityAttributeCollection.KEY_RARENESS, NbtElement.STRING_TYPE)) return;
 		Rareness rareness = Rareness.fromKey(tag.getString(EntityAttributeCollection.KEY_RARENESS));
 		tooltip.add(rareness.formatted());
 	}
@@ -80,7 +80,7 @@ public class ArmorRelicItem extends ArmorItem implements ItemHelper {
 	public SoundEvent getEquipSound(ItemStack itemStack) {
 		NbtCompound tag = itemStack.getNbt();
 		
-		if(tag != null && tag.contains(EntityAttributeCollection.KEY_RARENESS, NbtType.STRING)) {
+		if(tag != null && tag.contains(EntityAttributeCollection.KEY_RARENESS, NbtElement.STRING_TYPE)) {
 			Rareness rareness = Rareness.fromKey(tag.getString(EntityAttributeCollection.KEY_RARENESS));
 			return rareness.equipSound();
 		}

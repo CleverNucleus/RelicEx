@@ -1,5 +1,8 @@
 package com.github.clevernucleus.relicex.config;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import com.github.clevernucleus.relicex.RelicEx;
 
 import me.shedaniel.autoconfig.ConfigData;
@@ -57,4 +60,7 @@ public final class RelicExConfig implements ConfigData {
 	@ConfigEntry.BoundedDiscrete(min = 0, max = 100)
 	@ConfigEntry.Gui.Tooltip
 	public int mobDropIsTomeChance = 10;
+	
+	@ConfigEntry.Gui.Tooltip
+	public List<String> mobDropBlacklist = new ArrayList<String>();
 }

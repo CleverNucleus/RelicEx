@@ -13,11 +13,11 @@ import com.github.clevernucleus.dataattributes.api.util.RandDistribution;
 import com.github.clevernucleus.relicex.RelicEx;
 import com.google.common.collect.Multimap;
 
-import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.entity.attribute.EntityAttribute;
 import net.minecraft.entity.attribute.EntityAttributeModifier;
 import net.minecraft.entity.attribute.EntityAttributeModifier.Operation;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.nbt.NbtList;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.Pair;
@@ -69,8 +69,8 @@ public final class EntityAttributeCollection {
 	}
 	
 	public static void readFromNbt(NbtCompound tag, String slot, Multimap<EntityAttribute, EntityAttributeModifier> modifiersNBT, Multimap<EntityAttribute, EntityAttributeModifier> modifiersITM) {
-		if(!tag.contains(KEY_ATTRIBUTES, NbtType.LIST)) return;
-		NbtList list = tag.getList(KEY_ATTRIBUTES, NbtType.COMPOUND);
+		if(!tag.contains(KEY_ATTRIBUTES, NbtElement.LIST_TYPE)) return;
+		NbtList list = tag.getList(KEY_ATTRIBUTES, NbtElement.COMPOUND_TYPE);
 		
 		for(int i = 0; i < list.size(); i++) {
 			NbtCompound entry = list.getCompound(i);
@@ -115,8 +115,8 @@ public final class EntityAttributeCollection {
 	}
 	
 	public static float getValueIfArmor(NbtCompound tag, EntityAttribute attributeIn, float fallback) {
-		if(!tag.contains(KEY_ATTRIBUTES, NbtType.LIST)) return fallback;
-		NbtList list = tag.getList(KEY_ATTRIBUTES, NbtType.COMPOUND);
+		if(!tag.contains(KEY_ATTRIBUTES, NbtElement.LIST_TYPE)) return fallback;
+		NbtList list = tag.getList(KEY_ATTRIBUTES, NbtElement.COMPOUND_TYPE);
 		
 		for(int i = 0; i < list.size(); i++) {
 			NbtCompound entry = list.getCompound(i);
@@ -131,7 +131,7 @@ public final class EntityAttributeCollection {
 	}
 	
 	public void writeToNbt(NbtCompound tag) {
-		if(tag.contains(KEY_ATTRIBUTES, NbtType.LIST)) return;
+		if(tag.contains(KEY_ATTRIBUTES, NbtElement.LIST_TYPE)) return;
 		float weight = randomAttribute(this);
 		float random = (float)Math.random();
 		

@@ -12,7 +12,6 @@ import com.github.clevernucleus.relicex.impl.Rareness;
 import com.google.common.collect.ArrayListMultimap;
 import com.google.common.collect.Multimap;
 
-import net.fabricmc.fabric.api.util.NbtType;
 import net.minecraft.client.item.TooltipContext;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.entity.attribute.EntityAttribute;
@@ -22,6 +21,7 @@ import net.minecraft.item.ArmorItem;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtElement;
 import net.minecraft.text.Text;
 import net.minecraft.world.World;
 
@@ -32,17 +32,13 @@ abstract class ArmorItemMixin extends Item implements ItemHelper {
 	@Final
 	protected EquipmentSlot slot;
 	
-	@Shadow
-	@Final
-	private Multimap<EntityAttribute, EntityAttributeModifier> attributeModifiers;
-	
 	private ArmorItemMixin(Settings settings) { super(settings); }
 	
 	@Override
 	public void appendTooltip(ItemStack stack, World world, List<Text> tooltip, TooltipContext context) {
 		NbtCompound tag = stack.getNbt();
 		
-		if(tag == null || !tag.contains(EntityAttributeCollection.KEY_RARENESS, NbtType.STRING)) return;
+		if(tag == null || !tag.contains(EntityAttributeCollection.KEY_RARENESS, NbtElement.STRING_TYPE)) return;
 		Rareness rareness = Rareness.fromKey(tag.getString(EntityAttributeCollection.KEY_RARENESS));
 		tooltip.add(rareness.formatted());
 	}
@@ -51,9 +47,10 @@ abstract class ArmorItemMixin extends Item implements ItemHelper {
 	public Multimap<EntityAttribute, EntityAttributeModifier> getAttributeModifiers(ItemStack stack, EquipmentSlot slot) {
 		NbtCompound tag = stack.getOrCreateNbt();
 		Multimap<EntityAttribute, EntityAttributeModifier> modifiers = ArrayListMultimap.create();
-		EntityAttributeCollection.readFromNbt(tag, this.slot.getName(), modifiers, this.attributeModifiers);
+		Multimap<EntityAttribute, EntityAttributeModifier> fallbacks = super.getAttributeModifiers(stack, slot);
+		EntityAttributeCollection.readFromNbt(tag, this.slot.getName(), modifiers, fallbacks);
 		
-		return slot == this.slot ? (modifiers.isEmpty() ? this.attributeModifiers : modifiers) : super.getAttributeModifiers(stack, slot);
+		return slot == this.slot ? (modifiers.isEmpty() ? fallbacks : modifiers) : fallbacks;
 	}
 	
 	@Override
