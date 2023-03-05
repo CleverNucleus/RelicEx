@@ -12,13 +12,13 @@ import net.minecraft.util.Formatting;
 import net.minecraft.util.math.MathHelper;
 
 public enum Rareness {
-	COMMON("common", 1.0F, 0.0F, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, Formatting.WHITE),
-	UNCOMMON("uncommon", 0.5F, 0.1F, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, Formatting.DARK_GRAY),
-	RARE("rare", 0.4F, 0.2F, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, Formatting.DARK_GREEN),
-	EPIC("epic", 0.31F, 0.3F, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, Formatting.DARK_AQUA),
-	MYTHICAL("mythical", 0.22F, 0.4F, SoundEvents.ITEM_ARMOR_EQUIP_IRON, Formatting.DARK_RED),
-	LEGENDARY("legendary", 0.15F, 0.5F, SoundEvents.ITEM_ARMOR_EQUIP_IRON, Formatting.DARK_PURPLE),
-	IMMORTAL("immortal", 0.1F, 0.6F, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, Formatting.GOLD);
+	COMMON("common", 1.0F, 0.0F, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, Formatting.GRAY),
+	UNCOMMON("uncommon", 0.5F, 0.1F, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, Formatting.DARK_GREEN),
+	RARE("rare", 0.4F, 0.2F, SoundEvents.ITEM_ARMOR_EQUIP_LEATHER, Formatting.BLUE),
+	EPIC("epic", 0.31F, 0.3F, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, Formatting.DARK_PURPLE),
+	MYTHICAL("mythical", 0.22F, 0.4F, SoundEvents.ITEM_ARMOR_EQUIP_IRON, Formatting.GOLD),
+	LEGENDARY("legendary", 0.15F, 0.5F, SoundEvents.ITEM_ARMOR_EQUIP_IRON, Formatting.YELLOW),
+	IMMORTAL("immortal", 0.1F, 0.6F, SoundEvents.ITEM_ARMOR_EQUIP_GOLD, Formatting.DARK_RED);
 	
 	private static final Map<String, Rareness> VALUES = Maths.enumLookupMap(Rareness.values(), Rareness::toString);
 	/** Colour of the tooltip text */
