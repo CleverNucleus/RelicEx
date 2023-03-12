@@ -4,6 +4,7 @@ import java.util.Map;
 
 import com.github.clevernucleus.dataattributes.api.util.Maths;
 import com.github.clevernucleus.relicex.RelicEx;
+import com.github.clevernucleus.relicex.RelicExClient;
 
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
@@ -72,7 +73,7 @@ public enum Rareness {
 	}
 	
 	public Text formatted() {
-		return (new TranslatableText("rareness." + RelicEx.MODID + "." + this.key)).formatted(this.formatting);
+		return (new TranslatableText("rareness." + RelicEx.MODID + "." + this.key)).formatted(RelicExClient.getColor(this, this.formatting));
 	}
 	
 	@Override
