@@ -80,7 +80,7 @@ public class DragonStoneItem extends Item {
 					user.playSound(SoundEvents.ENTITY_ENDER_DRAGON_GROWL, SoundCategory.NEUTRAL, 0.75F, 1.0F);
 				} else {
 					PlayerData playerData = ExAPI.PLAYER_DATA.get(user);
-					playerData.reset();
+					playerData.reset(ExAPI.getConfig().resetOnDeath());
 					
 					if(!user.isCreative()) {
 						itemStack.decrement(1);
