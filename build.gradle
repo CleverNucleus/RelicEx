@@ -1,9 +1,6 @@
-import com.modrinth.minotaur.dependencies.VersionDependency
-
 plugins {
 	id 'fabric-loom' version '1.1-SNAPSHOT'
 	id 'maven-publish'
-    id "com.modrinth.minotaur" version "2.+"
 }
 
 sourceCompatibility = JavaVersion.VERSION_17
@@ -60,7 +57,8 @@ dependencies {
 		exclude(group: "net.fabricmc.fabric-api")
 	}
 	
-	modImplementation include("eu.pb4:placeholder-api:${project.placeholder_api}")
+	modImplementation "maven.modrinth:projectile-damage-attribute:${project.projectile_damage_version}"
+	modImplementation "eu.pb4:placeholder-api:${project.placeholder_api}"
 	implementation 'net.objecthunter:exp4j:0.4.8'
 	modImplementation "maven.modrinth:playerex:${project.playerex_version}"
 	modImplementation include("maven.modrinth:armor-render-lib:${project.arl_version}")
@@ -107,21 +105,4 @@ publishing {
 	repositories {
 		
 	}
-}
-
-modrinth {
-	BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-	System.out.println("Enter a Modrinth token: ");
-	token = br.readLine();
-	projectId = "LwwtuiRk"
-	versionNumber = "${project.mod_version}"
-	versionName = "${project.mod_version}"
-	uploadFile = remapJar
-	gameVersions = ["${project.minecraft_version}"]
-	loaders = ["fabric"]
-	dependencies = [
-		new VersionDependency("3aJLgtoZ", "required"),
-        new VersionDependency("oLUBJhyv", "required"),
-		new VersionDependency("tnq7cqef", "embedded")
-	]
 }

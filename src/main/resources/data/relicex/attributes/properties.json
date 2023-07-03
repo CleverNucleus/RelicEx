@@ -60,7 +60,7 @@
 		"playerex:wither_resistance": {
 			"weight": "r30:a100:x0.01:y0.5:z0.01:u0.01:v0.5:w0.01"
 		},
-		"playerex:ranged_damage": {
+		"projectile_damage:generic": {
 			"weight": "r50:a50:x0.25:y4:z0.25:u0.05:v0.5:w0.01"
 		},
 		"playerex:melee_crit_chance": {
